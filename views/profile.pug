@@ -1,0 +1,97 @@
+extends layout
+
+block content-head 
+    title Login - Travel Journey
+
+block content-body
+    .container
+      h1 User Profile
+
+      // Display Customer Details
+      .profile-info
+        h2 Customer Details
+        .form-group
+          label(for="username") Username:
+          span#username= user.customer.username
+        .form-group
+          label(for="email") E-mail:
+          span#customerEmail= user.customer.email
+        .form-group
+          label(for="phone") Phone Numbers:
+          each phone in user.customer.phoneNumbers
+            span.phone-number= phone
+            br
+        .form-group
+          label(for="city") City:
+          span#customerCity= user.customer.city
+
+      // Display Agent Details
+      .profile-info
+        h2 Travel Agent Details
+        .form-group
+          label(for="agentName") Name:
+          span#agentName= user.agent.agentname
+        .form-group
+          label(for="agentEmail") E-mail:
+          span#agentEmail= user.agent.agentemail
+        .form-group
+          label(for="agentId") Travel Agent ID:
+          span#agentId= user.agent.agentid
+
+      // Edit button to toggle the edit forms
+      button#editCustomer(type="button") Edit Customer Details
+      button#editAgent(type="button") Edit Agent Details
+
+      // Edit form for updating customer details
+      form#editCustomerForm(action="/user/update/customer", method="post", style="display:none")
+        input(type="hidden", name="_id", value=user.customer._id) // Customer ID
+        fieldset
+          legend Edit Customer Details
+          .form-group
+            label(for="editUsername") Username
+            input(type="text", name="username", id="editUsername", value=user.customer.username)
+            div#error-editUsername.error-message
+          .form-group
+            label(for="editCustomerEmail") E-mail
+            input(type="email", name="email", id="editCustomerEmail", value=user.customer.email)
+            div#error-editCustomerEmail.error-message
+          .form-group
+            label(for="editPhone") Phone Numbers
+            div#editPhoneNumbersContainer
+              each phone in user.customer.phoneNumbers
+                input(type="tel", name="phone", class="edit-phone", value=phone)
+                br
+              button#addEditPhone(type="button") Add Phone Number
+            div#error-editPhone.error.message
+          .form-group
+            label(for="editCity") City
+            input(type="text", name="city", id="editCity", value=user.customer.city)
+            div#error-editCity.error-message
+
+        button#updateCustomer.block(type="submit") Update Customer
+
+      // Edit form for updating agent details
+      form#editAgentForm(action="/user/update/agent", method="post", style="display:none")
+        input(type="hidden", name="_id", value=user.agent._id) // Agent ID
+        fieldset
+          legend Edit Agent Details
+          .form-group
+            label(for="editAgentName") Name
+            input(type="text", name="agentname", id="editAgentName", value=user.agent.agentname)
+            div#error-editAgentName.error-message
+          .form-group
+            label(for="editAgentEmail") E-mail
+            input(type="email", name="agentemail", id="editAgentEmail", value=user.agent.agentemail)
+            div#error-editAgentEmail.error-message
+          .form-group
+            label(for="editAgentPassword") Password
+            input(type="password", name="agentpassword", id="editAgentPassword")
+            div#error-editAgentPassword.error.message
+          .form-group
+            label(for="editAgentId") Travel Agent ID
+            input(type="text", name="agentid", id="editAgentId", value=user.agent.agentid)
+            div#error-editAgentId.error-message
+
+        button#updateAgent.block(type="submit") Update Agent
+
+    script(src="./assets/js/script.js") // Link to your JavaScript file

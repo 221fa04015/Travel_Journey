@@ -1,0 +1,72 @@
+extends layout
+
+block content-head
+  title Registration
+
+block content-body
+  main
+    img(src="/assets/images/gif-3.gif", alt="no image", id="gif")
+    .container#form
+      .form-group
+        label Register as:
+        button#customerButton.block(type="button") Customer
+        button#agentButton.block(type="button") Travel Agent
+
+      // Customer Registration Form
+      form#customerForm(action="/user/register", method="post",style="display:none")
+        input(type="hidden", name="role", value="customer")  
+        fieldset
+          legend Customer Details
+          .form-group
+            label(for="username") Username
+            input(type="text", name="username", id="username") 
+            div#error-username.error-message 
+          .form-group
+            label(for="email") E-mail
+            input(type="email", name="email", id="email") 
+            div#error-email.error-message
+          .form-group
+            label(for="password") Password
+            input(type="password", name="password", id="password") 
+            div#error-password.error-message
+          .form-group
+            label(for="phone") Phone Numbers
+            div#phoneNumbersContainer
+              input(type="tel", name="phone", id="phone", class="phone")  
+              div#error-phone.error-message
+              button#addPhone(type="button") Add Phone Number
+          .form-group
+            label(for="city") City
+            input(type="text", name="city", id="city")  
+            div#error-city.error-message
+        button#customerSubmit.block(type="submit") Register as Customer
+        div.registration-links
+                | Already have an account? 
+                a(href="/login") Login here
+      // Travel Agent Registration Form
+      form#agentForm(action="/agent/register", method="post")
+        input(type="hidden", name="role", value="agent")  
+        fieldset
+          legend Travel Agent Details
+          .form-group
+            label(for="agentName") Name
+            input(type="text", name="agentname", id="agentName")
+            div#error-agentName.error-message
+          .form-group
+            label(for="agentEmail") E-mail
+            input(type="email", name="agentemail", id="agentEmail")  
+            div#error-agentEmail.error-message
+          .form-group
+            label(for="agentPassword") Password
+            input(type="password", name="agentpassword", id="agentPassword") 
+            div#error-agentPassword.error-message
+          .form-group
+            label(for="agentId") Travel Agent ID
+            input(type="text", name="agentid", id="agentId")  
+            div#error-agentId.error-message
+        button#agentSubmit.block(type="submit") Register as Agent
+        div.registration-links
+                | Already have an account? 
+                a(href="/login") Login here
+    #footer
+    script(src="./assets/js/script.js")

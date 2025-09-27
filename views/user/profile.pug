@@ -1,0 +1,32 @@
+extends userLayout 
+
+block content-head 
+    title My Profile
+
+block content-body 
+  .main-content
+        h1 My Profile
+            .profile-info
+        p First Name: #{user.first_name}
+        //p Last Name: #{user.last_name}
+        p Email: #{user.email}
+        p Phone: #{user.phone}
+        button.edit-btn(onclick="openOverlay()") Edit Profile
+        
+
+        .overlay(id="editProfileOverlay")
+            .overlay-content.registration-section
+                span.close-btn(onclick="closeOverlay()") &times;
+                h2 Edit Profile
+                form.registration-form(action="/user/edit-profile" method="POST")
+                    input(type="text" name="first_name" placeholder="First Name" value=user.first_name required)
+                    //- input(type="text" name="last_name" placeholder="Last Name" value=user.last_name required)
+                    input(type="email" name="email" placeholder="Email" value=user.email required)                    
+                    input(type="tel" name="phone" placeholder="Phone Number" value=user.phone required)
+                    button(type="submit") Save Changes
+
+        include userFooter
+
+
+       
+        

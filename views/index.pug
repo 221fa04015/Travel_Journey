@@ -1,0 +1,70 @@
+extends layout 
+
+block content-head 
+  title Welcome to Travel Journey 
+  
+block content-body 
+  //- Hero section with an image
+  .hero-section
+    img(src="/assets/images/travel-1.jpg", width="100%", alt="Travel Banner Image")
+
+  //- Welcome message
+  .welcome-message
+    h1 Explore the World with Travel Journey
+    p Plan your next adventure with ease. Find the best destinations, book flights, and discover amazing experiences around the globe.
+
+    
+
+  //- Search bar for 'From' and 'To' destinations
+  .search-bar
+    h2 Plan Your Journey
+    form(action="/search" method="GET")
+      .input-group
+        label(for="from") From:
+        input#from(type="text" name="from" placeholder="Enter starting point" required)
+        
+        label(for="to") To:
+        input#to(type="text" name="to" placeholder="Enter destination" required)
+        
+        label(for="departure-date") Departure Date:
+        input#departure-date(type="date" name="departure-date" required)
+      
+      button(type="submit") Search Destinations
+
+  //- Popular destinations section
+  .popular-destinations
+    h2 Popular Destinations
+    .destination-grid
+      .destination-card
+        img(src="/assets/images/paris.jpg" alt="Paris" width="100%")
+        h3 Paris, France
+        p Discover the City of Lights, from the Eiffel Tower to world-class museums.
+        a(href="https://www.britannica.com/place/Paris") Learn More
+      .destination-card
+        img(src="/assets/images/newyork.jpg" alt="New York" width="100%")
+        h3 New York, USA
+        p Explore the Big Apple, famous for its skyscrapers, Broadway, and Central Park.
+        a(href="https://www.britannica.com/place/New-York-City") Learn More
+      .destination-card
+        img(src="/assets/images/tokyo.jpeg" alt="Tokyo" width="100%")
+        h3 Tokyo, Japan
+        p Experience the blend of tradition and modernity in Japan's bustling capital.
+        a(href="https://www.britannica.com/place/Tokyo") Learn More
+      .destination-card
+        img(src="/assets/images/sydney.jpg" alt="Sydney" width="100%")
+        h3 Sydney, Australia
+        p Enjoy the stunning beaches, iconic Sydney Opera House, and vibrant culture.
+        a(href="https://www.britannica.com/place/Sydney-New-South-Wales") Learn More
+
+
+  .weather-container
+      h1 Know the weather at your required Destination here..!
+      form(method="post" action="/search_weather")
+        input(type="text" id="city" name="city" placeholder="Enter city name" required)
+        button#get-weather(type="submit") Get Weather
+
+  //- Promotional banner for latest offers
+  .promo-banner
+    h2 Special Offers
+    p Save big on your next trip! Check out the latest flight deals and travel packages.
+    button(type="button") View Offers

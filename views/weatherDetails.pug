@@ -1,0 +1,19 @@
+extends layout
+
+block content-head
+    title Weather Search Results
+
+block content-body
+  #main-content
+    if weatherData
+      section.weather-section
+        h2 Weather Details for #{city}
+
+        .weather-card
+          p Temperature: #{weatherData.temperature}°C
+          p Description: #{weatherData.description}
+          img(src=`http://openweathermap.org/img/wn/${weatherData.icon}.png` alt="Weather Icon" )
+    else
+      section.no-results
+        h2 No Weather Data Found
+        p Sorry, no weather information is available for #{city}.

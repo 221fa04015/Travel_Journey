@@ -1,0 +1,112 @@
+extends layout
+
+block content-head 
+    title Login - Travel Journey
+
+block content-body
+  section.login-section
+    h2 Login
+    form.login-form(action="/user/login" method="post")
+      input(type="email" name="email" placeholder="Your Email" required)
+      input(type="password" name="password" placeholder="Your Password" required)
+
+      //- input(type="text" name="role" placeholder="enter your role" required)
+
+      button(type="submit") Login
+
+    //- Links for forgotten credentials
+    .forgot-credentials
+      a(href="/forgot-password") Forgot Password?    
+      a(href="/forgot-username") Forgot Username?
+
+    //- Social media login options
+    .social-login      
+      a(href="#" class="facebook-login"): i.fab.fa-facebook
+
+      a(href="#" class="google-login"): i.fab.fa-google
+      a(href="#" class="twitter-login"): i.fab.fa-twitter
+      
+    if errorMessage
+      span.error-message * #{errorMessage}
+
+        
+      a(href="#" class="google-login"): i.fab.fa-google
+        
+      a(href="#" class="twitter-login"): i.fab.fa-twitter
+    span.error-message * #{errorMessage}
+       
+
+
+
+
+
+
+
+
+
+
+
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     meta(charset="UTF-8")
+//-     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+//-     title Login Page
+//-     link(rel="stylesheet", href="./assetes/css/style.css")
+
+//-   body
+//-     div#header
+
+//-     //- Navigation Bar (commented out in original code)
+//-     //- header#nav-bar
+//-     //-   nav
+//-     //-     img(src="./assetes/images/vector-logo.jpg" alt="Company Logo" id="company-logo")
+//-     //-     marquee 
+//-     //-       strong Travel Beyond Borders! Share your adventures and find your next dream destination!
+//-     //-     a(href="./index.html") Home
+//-     //-     a(href="./register.html") Get Started
+//-     //-     a(href="./login.html") Sign In
+//-     //-     a(href="./dashboard.html") Account Overview
+//-     //-     a(href="./aboutus.html") Our Story
+
+//-     main
+//-       img(src="./assetes/images/gif-3.gif" alt="no image" id="gif")
+//-       .container#form
+//-         form#loginForm
+//-           fieldset
+//-             legend Login
+
+//-             .form-group(action="/register", method="post")
+//-               label(for="college") Name
+//-               input(type="text" name="name" id="college" value="")
+//-               .error-message#nameError
+
+//-             .form-group
+//-               label(for="mail") E-mail
+//-               input(type="email" name="email" id="mail" required)
+
+//-             .form-group
+//-               label(for="password") Password
+//-               input(type="password" name="password" id="password" required)
+
+//-             // Forgot Password Link
+//-             div
+//-               a(href="./views/forgot-password.html" id="forgot-password") Forgot Password?
+
+//-             // Login Button
+//-             .button-container
+//-               button(type="submit" id="loginButton" class="block") Login
+
+//-     div#footer
+
+//-     //- Footer (commented out in original code)
+//-     //- footer
+//-     //-   .foot
+//-     //-     h6 @ Copyright Reserved..!
+//-     //-   .images#logos
+//-     //-     img(src="./assetes/images/icon-favicon.png" alt="no image found")
+//-     //-     img(src="./assetes/images/icon-twitter.svg" alt="no image found")
+//-     //-     img(src="./assetes/images/icon-facebook.svg" alt="no image found")
+//-     //-     img(src="./assetes/images/icon-instagram.svg" alt="no image found")
+
+//-     script(src="./assetes/js/script.js")

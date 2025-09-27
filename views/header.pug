@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Travel Journal
+    link(rel="stylesheet" href="/style.css")
+  body
+    header
+      nav
+        img.logo(src="/assets/images/logo.jpg", alt="Travel Journal Logo")
+        a(href="/") Home
+        a(href="/aboutus") Our Story
+        a(href="/services") Services
+        a(href="/contact") Contact
+
+        if !userId
+          a(href="/register.pug") Get Started
+          a(href="/login") Sign In
+
+        if userId
+          a(href="/user/dashboard") Dashboard
+          a(href="/logout") Log Out

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        #get-weather {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #get-weather:hover {
+            background-color: #8ef193;
+        }
+
+        #weather-data {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            text-align: left;
+        }
+
+        #weather-data p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        img {
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="./assetes/css/style.css">
+</head>
+<body>
+
+    
+
+    <h1>Find the weather at your destination..</h1>
+    <form>
+        <input type="text" id="city" placeholder="Enter city name" required>
+        <button id="get-weather" type="button">Get Weather</button>
+    </form>
+    <div id="weather-data"></div>
+
+    <script>
+        const apiKey = "e2ab9f19d1ff347b0069351eb04a7095"; // Insert your OpenWeather API key here
+        const cityInput = document.getElementById("city");
+        const getWeatherButton = document.getElementById("get-weather");
+        const weatherDataDiv = document.getElementById("weather-data");
+
+        getWeatherButton.addEventListener("click", () => {
+            const city = cityInput.value.trim(); // Trim whitespace
+            if (city === "") {
+                weatherDataDiv.innerHTML = "<p>Please enter a city name.</p>";
+                return;
+            }
+
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("City not found.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weatherData = {
+                        temperature: data.main.temp,
+                        description: data.weather[0].description,
+                        icon: data.weather[0].icon
+                    };
+                    weatherDataDiv.innerHTML = `
+                        <p>Temperature: ${weatherData.temperature}°C</p>
+                        <p>Description: ${weatherData.description}</p>
+                        <img src="http://openweathermap.org/img/wn/${weatherData.icon}.png" alt="Weather Icon">
+                    `;
+                })
+                .catch(error => {
+                    weatherDataDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+                });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+extends userLayout 
+
+block content-head 
+    title Travel Jornal Dashboard
+  
+block content-body 
+  .main-content
+    .landing
+      h1 Welcome back, #{user.first_name}!
+
+      .quick-actions
+        .action-card View Upcoming Packages
+        .action-card Recent Bookings
+        .action-card Special Offers
+        .action-card Travel Insurance Options
+        .action-card View Frequent Travel Points
+
+      .promo-banner
+        h2 Check out our latest offers!
+        .promo-cards
+          .promo-card
+            h3 15% Off on Special Offers
+            p Book your offer now...! and get 15% off on your next booking!!!
+            button.promo-btn Learn More
+          //- .promo-card
+          //-   h3 Free Baggage
+          //-   p Enjoy free checked baggage on all international flights!
+          //-   button.promo-btn Learn More
+          .promo-card
+            h3 Last Minute Offers
+            p Find amazing last-minute Offers..!
+            button.promo-btn Learn More
+          .promo-card
+            h3 Refer a Friend
+            p Refer a friend and both get discounts on your next Trip..!
+            button.promo-btn Learn More
+
+    .user-tips
+      h2 Travel Tips
+      ul
+        li Know the local customs, weather, and language basics. Check travel restrictions or requirements.
+        li Check the weather at your destination before packing.
+        li Avoid overpacking by sticking to essentials. Use a packing checklist.
+        li Use Google Maps offline mode and travel apps like TripIt, Google Translate, or currency converters.
+        li Keep local currency: For places that don’t accept cards, have some local currency.
+
+    .news-section
+      h2 Latest Travel News
+      p Stay informed about the latest travel news, including new routes, and health advisories. 
+        a(href="#") Read more...
+
+    .faq-section
+      h2 Frequently Asked Questions
+      .accordion
+        .accordion-item
+          .accordion-header
+            span How do I start a travel journal on this website?
+            button.accordion-icon + 
+          .accordion-content
+            p You can sign up for an account, log in, and create your travel journal by adding entries for each trip or destination you visit.
+        .accordion-item
+          .accordion-header
+            span Can I edit or delete a journal entry after posting?
+            button.accordion-icon + 
+          .accordion-content
+            p Yes, you can always edit or delete your journal entries by navigating to the entry and selecting the appropriate option.
+        .accordion-item
+          .accordion-header
+            span Is this website free to use?
+            button.accordion-icon + 
+          .accordion-content
+            p Basic features are free, but there may be premium options for advanced functionalities like extra storage, customization, or enhanced privacy.
+        .accordion-item
+          .accordion-header
+            span How can I contact customer support?
+            button.accordion-icon + 
+          .accordion-content
+            p You can reach our customer support via email at support@TravelJournalBookings.com or call us at 1-900-666-1236.
+        .accordion-item
+          .accordion-header
+            span Can I share my travel journal with others?
+            button.accordion-icon + 
+          .accordion-content
+            p Yes, you can share your travel journals via a public link or on social media platforms by selecting the sharing options available in your journal settings.
+
+    .feedback-section
+      p We value your feedback! 
+      button.feedback-btn Give Feedback
+
+    include userFooter 
+  button.scroll-to-top(id="scrollToTopBtn") ↑
+
+  
