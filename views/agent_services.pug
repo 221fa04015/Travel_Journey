@@ -1,0 +1,158 @@
+extends agentLayout
+
+block content-head
+    title Agent Services
+
+block content-body
+  .main-content
+    .page-header
+      h1 Service Management
+      p Configure and manage your travel services and pricing.
+
+    .service-dashboard
+      .service-metrics
+        .metric-card
+          h3 Total Services
+          .metric-value 25
+          .metric-trend ↑ 3 new this month
+        .metric-card
+          h3 Active Services
+          .metric-value 20
+          .metric-trend 80% utilization
+        .metric-card
+          h3 Monthly Revenue
+          .metric-value $15,000
+          .metric-trend ↑ 12% from last month
+        .metric-card
+          h3 Avg. Commission
+          .metric-value 8.5%
+          .metric-trend Industry standard
+
+    .service-controls
+      .control-buttons
+        button.btn-primary Add New Service
+        button.btn-secondary Bulk Update Pricing
+        button.btn-secondary Service Templates
+        button.btn-secondary Performance Reports
+
+    .service-catalog
+      h2 Service Catalog
+      .service-categories
+        .category-section
+          h3 Transportation Services
+          .service-items
+            .service-item
+              .service-header
+                h4 Flight Bookings
+                .service-status.active Active
+              .service-details
+                p Book domestic and international flights with competitive rates and flexible options.
+                .service-metrics
+                  .metric Avg. Price: $299
+                  .metric Bookings: 145 this month
+                  .metric Rating: ★★★★☆ 4.2
+              .service-actions
+                button.btn-small Edit
+                button.btn-small Analytics
+                button.btn-small Toggle Status
+
+            .service-item
+              .service-header
+                h4 Car Rentals
+                .service-status.active Active
+              .service-details
+                p Wide selection of vehicles for all travel needs and budgets.
+                .service-metrics
+                  .metric Avg. Price: $45/day
+                  .metric Bookings: 89 this month
+                  .metric Rating: ★★★★☆ 4.1
+              .service-actions
+                button.btn-small Edit
+                button.btn-small Analytics
+                button.btn-small Toggle Status
+
+        .category-section
+          h3 Accommodation Services
+          .service-items
+            .service-item
+              .service-header
+                h4 Hotel Reservations
+                .service-status.active Active
+              .service-details
+                p Luxury and budget accommodations worldwide with exclusive deals.
+                .service-metrics
+                  .metric Avg. Price: $150/night
+                  .metric Bookings: 203 this month
+                  .metric Rating: ★★★★☆ 4.3
+              .service-actions
+                button.btn-small Edit
+                button.btn-small Analytics
+                button.btn-small Toggle Status
+
+        .category-section
+          h3 Experience Services
+          .service-items
+            .service-item
+              .service-header
+                h4 Tour Packages
+                .service-status.active Active
+              .service-details
+                p Complete travel packages with guided tours and activities.
+                .service-metrics
+                  .metric Avg. Price: $899
+                  .metric Bookings: 67 this month
+                  .metric Rating: ★★★★★ 4.8
+              .service-actions
+                button.btn-small Edit
+                button.btn-small Analytics
+                button.btn-small Toggle Status
+
+    .service-analytics
+      h2 Service Performance
+      .analytics-grid
+        .analytics-card
+          h4 Top Performing Services
+          .performance-list
+            .performance-item
+              span.service-name Tour Packages
+              span.performance-value 95% satisfaction
+            .performance-item
+              span.service-name Hotel Reservations
+              span.performance-value 89% satisfaction
+            .performance-item
+              span.service-name Flight Bookings
+              span.performance-value 87% satisfaction
+        .analytics-card
+          h4 Revenue by Service
+          .revenue-chart
+            p [Revenue breakdown chart would appear here]
+        .analytics-card
+          h4 Service Utilization
+          .utilization-stats
+            .utilization-item
+              .service-type Flights
+              .utilization-bar(style="width: 85%") 85%
+            .utilization-item
+              .service-type Hotels
+              .utilization-bar(style="width: 92%") 92%
+            .utilization-item
+              .service-type Tours
+              .utilization-bar(style="width: 78%") 78%
+
+    .service-tools
+      h2 Management Tools
+      .tools-grid
+        .tool-card
+          h4 Pricing Calculator
+          p Calculate optimal pricing based on market data
+          button.btn-primary Open Calculator
+        .tool-card
+          h4 Commission Tracker
+          p Monitor and optimize commission rates
+          button.btn-secondary View Tracker
+        .tool-card
+          h4 Supplier Management
+          p Manage relationships with service providers
+          button.btn-secondary Supplier Portal
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

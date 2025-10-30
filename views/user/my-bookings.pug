@@ -1,0 +1,43 @@
+extends ../userLayout
+
+block content-head
+    title My Bookings - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 My Bookings
+      p Manage your travel bookings and reservations.
+
+    .bookings-section
+      .booking-card
+        h3 Upcoming Trip to Paris
+        p Destination: Paris, France
+        p Dates: June 15-22, 2024
+        p Status: Confirmed
+        .booking-actions
+          button.btn-primary Edit Booking
+          button.btn-secondary Cancel Booking
+
+      .booking-card
+        h3 Business Trip to New York
+        p Destination: New York, USA
+        p Dates: July 10-15, 2024
+        p Status: Pending
+        .booking-actions
+          button.btn-primary Confirm Booking
+          button.btn-secondary Cancel Booking
+
+      .booking-card
+        h3 Vacation in Tokyo
+        p Destination: Tokyo, Japan
+        p Dates: August 5-12, 2024
+        p Status: Confirmed
+        .booking-actions
+          button.btn-primary View Details
+          button.btn-secondary Cancel Booking
+
+    .add-booking
+      button.btn-primary Add New Booking
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

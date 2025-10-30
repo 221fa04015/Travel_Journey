@@ -1,0 +1,68 @@
+extends ../userLayout
+
+block content-head
+    title Travel History - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Travel History
+      p Review your past trips and create memories.
+
+    .history-section
+      .trip-card
+        .trip-header
+          h3 Trip to Paris, France
+          p Dates: May 10-17, 2023
+        .trip-details
+          p Duration: 7 days
+          p Total Cost: $1200
+          p Rating: ★★★★★
+        .trip-actions
+          button.btn-secondary View Details
+          button.btn-primary Write Review
+
+      .trip-card
+        .trip-header
+          h3 Business Trip to New York
+          p Dates: March 15-18, 2023
+        .trip-details
+          p Duration: 3 days
+          p Total Cost: $800
+          p Rating: ★★★★☆
+        .trip-actions
+          button.btn-secondary View Details
+          button.btn-primary Write Review
+
+      .trip-card
+        .trip-header
+          h3 Vacation in Bali
+          p Dates: January 5-12, 2023
+        .trip-details
+          p Duration: 7 days
+          p Total Cost: $1500
+          p Rating: ★★★★★
+        .trip-actions
+          button.btn-secondary View Details
+          button.btn-primary Write Review
+
+    .history-stats
+      h3 Travel Statistics
+      .stats-grid
+        .stat-item
+          h4 Total Trips
+          p 12
+        .stat-item
+          h4 Countries Visited
+          p 8
+        .stat-item
+          h4 Miles Traveled
+          p 45,000
+        .stat-item
+          h4 Favorite Destination
+          p Paris, France
+
+    .export-history
+      button.btn-primary Export Travel History
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

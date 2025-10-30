@@ -1,0 +1,65 @@
+extends ../userLayout
+
+block content-head
+    title Manage Preferences - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Manage Preferences
+      p Customize your travel preferences and notifications.
+
+    .preferences-form
+      form(action="/user/manage-preferences", method="POST")
+        .preference-section
+          h3 Travel Preferences
+          .form-group
+            label(for="destination-type") Preferred Destination Type
+            select(id="destination-type", name="destination-type")
+              option(value="beach") Beach
+              option(value="mountain") Mountain
+              option(value="city") City
+              option(value="adventure") Adventure
+
+          .form-group
+            label(for="budget") Budget Range
+            select(id="budget", name="budget")
+              option(value="budget") Budget ($0-$1000)
+              option(value="mid-range") Mid-range ($1000-$3000)
+              option(value="luxury") Luxury ($3000+)
+
+          .form-group
+            label(for="travel-companions") Travel Companions
+            select(id="travel-companions", name="travel-companions")
+              option(value="solo") Solo
+              option(value="family") Family
+              option(value="friends") Friends
+              option(value="couple") Couple
+
+        .preference-section
+          h3 Notification Preferences
+          .checkbox-group
+            input(type="checkbox", id="email-notifications", name="email-notifications", checked)
+            label(for="email-notifications") Email notifications for deals and offers
+
+          .checkbox-group
+            input(type="checkbox", id="sms-notifications", name="sms-notifications")
+            label(for="sms-notifications") SMS notifications for flight updates
+
+          .checkbox-group
+            input(type="checkbox", id="push-notifications", name="push-notifications", checked)
+            label(for="push-notifications") Push notifications for travel alerts
+
+        .preference-section
+          h3 Privacy Settings
+          .checkbox-group
+            input(type="checkbox", id="share-profile", name="share-profile")
+            label(for="share-profile") Share my profile with travel partners
+
+          .checkbox-group
+            input(type="checkbox", id="public-journal", name="public-journal", checked)
+            label(for="public-journal") Make my travel journal public
+
+        button.btn-primary(type="submit") Save Preferences
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

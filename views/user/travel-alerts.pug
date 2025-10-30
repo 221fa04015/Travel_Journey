@@ -1,0 +1,58 @@
+extends ../userLayout
+
+block content-head
+    title Travel Alerts - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Travel Alerts
+      p Stay informed with the latest travel alerts and advisories.
+
+    .alerts-section
+      .alert-card.warning
+        h3 Weather Alert: Heavy Rain in Tokyo
+        p Heavy rainfall expected in Tokyo from June 20-22. Flights may be delayed.
+        p Issued: June 18, 2024
+        button.btn-secondary View Details
+
+      .alert-card.info
+        h3 Visa Update: New Requirements for EU Travel
+        p Updated visa requirements for travel to European Union countries.
+        p Issued: June 15, 2024
+        button.btn-secondary View Details
+
+      .alert-card.danger
+        h3 Health Advisory: COVID-19 Restrictions in Paris
+        p New health protocols implemented for travelers to Paris.
+        p Issued: June 10, 2024
+        button.btn-secondary View Details
+
+      .alert-card.success
+        h3 Route Reopened: Direct Flights to Sydney
+        p Direct flights from major cities to Sydney have resumed.
+        p Issued: June 5, 2024
+        button.btn-secondary View Details
+
+    .alert-subscription
+      h3 Manage Alert Subscriptions
+      form(action="/user/travel-alerts", method="POST")
+        .checkbox-group
+          input(type="checkbox", id="weather-alerts", name="weather-alerts", checked)
+          label(for="weather-alerts") Weather alerts
+
+        .checkbox-group
+          input(type="checkbox", id="visa-alerts", name="visa-alerts", checked)
+          label(for="visa-alerts") Visa and entry requirement updates
+
+        .checkbox-group
+          input(type="checkbox", id="health-alerts", name="health-alerts", checked)
+          label(for="health-alerts") Health and safety advisories
+
+        .checkbox-group
+          input(type="checkbox", id="route-alerts", name="route-alerts", checked)
+          label(for="route-alerts") Flight route changes and updates
+
+        button.btn-primary(type="submit") Update Subscriptions
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

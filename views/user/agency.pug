@@ -1,0 +1,64 @@
+extends ../userLayout
+
+block content-head
+    title Travel Agency - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Travel Agency
+      p Connect with our trusted travel partners and agencies.
+
+    .agency-section
+      .agency-card
+        img(src="/assets/images/travel-agency.jpg", alt="Travel Agency")
+        h3 Global Travel Solutions
+        p Comprehensive travel planning and booking services worldwide.
+        .agency-contact
+          p Phone: +1 (555) 123-4567
+          p Email: info@globaltravel.com
+        button.btn-primary Contact Agency
+
+      .agency-card
+        img(src="/assets/images/travel-agency.jpg", alt="Travel Agency")
+        h3 Adventure Seekers
+        p Specialized in adventure travel and outdoor expeditions.
+        .agency-contact
+          p Phone: +1 (555) 987-6543
+          p Email: adventures@seekers.com
+        button.btn-primary Contact Agency
+
+      .agency-card
+        img(src="/assets/images/travel-agency.jpg", alt="Travel Agency")
+        h3 Luxury Journeys
+        p Premium travel experiences for discerning travelers.
+        .agency-contact
+          p Phone: +1 (555) 456-7890
+          p Email: luxury@journeys.com
+        button.btn-primary Contact Agency
+
+    .agency-services
+      h3 Our Services
+      .services-grid
+        .service-item
+          img(src="/assets/images/flight-booking.jpg", alt="Flight Booking")
+          h4 Flight and Hotel Bookings
+          p Book flights and hotels seamlessly with our partners.
+        .service-item
+          img(src="/assets/images/travel-insurance.png", alt="Travel Insurance")
+          h4 Travel Insurance
+          p Protect your journey with comprehensive insurance options.
+        .service-item
+          img(src="/assets/images/visa-assistance.jpg", alt="Visa Assistance")
+          h4 Visa Assistance
+          p Get expert help with visa applications and requirements.
+        .service-item
+          img(src="/assets/images/tour-packages.png", alt="Tour Packages")
+          h4 Tour Packages
+          p Explore curated tour packages for unforgettable experiences.
+        .service-item
+          img(src="/assets/images/success.gif", alt="24/7 Support")
+          h4 24/7 Customer Support
+          p Round-the-clock assistance for all your travel needs.
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

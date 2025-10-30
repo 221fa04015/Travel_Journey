@@ -1,0 +1,191 @@
+extends agentLayout
+
+block content-head
+    title Agent History
+
+block content-body
+  .main-content
+    .page-header
+      h1 Transaction History
+      p Track your booking history, commissions, and business performance.
+
+    .history-dashboard
+      .history-metrics
+        .metric-card
+          h3 Total Bookings
+          .metric-value 1,247
+          .metric-trend All-time record
+        .metric-card
+          h3 This Year
+          .metric-value 387
+          .metric-trend ↑ 23% from last year
+        .metric-card
+          h3 Revenue Generated
+          .metric-value $487,650
+          .metric-trend ↑ 31% YoY growth
+        .metric-card
+          h3 Commission Earned
+          .metric-value $36,574
+          .metric-trend 7.5% avg. rate
+
+    .history-controls
+      .control-buttons
+        button.btn-primary Export Report
+        button.btn-secondary Filter History
+        button.btn-secondary Commission Statement
+        button.btn-secondary Tax Documents
+
+    .booking-history
+      h2 Booking History
+      .history-filters
+        .filter-options
+          select.filter-select
+            option(value="all") All Bookings
+            option(value="flights") Flights
+            option(value="hotels") Hotels
+            option(value="packages") Packages
+            option(value="cars") Car Rentals
+          input.filter-date(type="date", placeholder="From Date")
+          input.filter-date(type="date", placeholder="To Date")
+          button.btn-secondary Apply Filters
+      .history-table
+        table.bookings-table
+          thead
+            tr
+              th Date
+              th Client
+              th Service
+              th Amount
+              th Commission
+              th Status
+              th Actions
+          tbody
+            tr
+              td Oct 15, 2023
+              td Sarah Johnson
+              td European Tour Package
+              td $2,499
+              td $187.43
+              td
+                span.status.completed Completed
+              td
+                .action-buttons
+                  button.btn-small View
+                  button.btn-small Receipt
+            tr
+              td Oct 12, 2023
+              td Michael Chen
+              td Flight: NYC-LON
+              td $899
+              td $67.43
+              td
+                span.status.completed Completed
+              td
+                .action-buttons
+                  button.btn-small View
+                  button.btn-small Receipt
+            tr
+              td Oct 10, 2023
+              td Emma Davis
+              td Hotel: Paris 5 nights
+              td $1,250
+              td $93.75
+              td
+                span.status.completed Completed
+              td
+                .action-buttons
+                  button.btn-small View
+                  button.btn-small Receipt
+            tr
+              td Oct 8, 2023
+              td Robert Wilson
+              td Car Rental: Rome 7 days
+              td $350
+              td $26.25
+              td
+                span.status.pending Pending
+              td
+                .action-buttons
+                  button.btn-small View
+                  button.btn-small Confirm
+
+    .commission-tracking
+      h2 Commission Tracking
+      .commission-overview
+        .commission-summary
+          .summary-card
+            h4 This Month
+            .amount $4,256.78
+            .period October 2023
+          .summary-card
+            h4 Last Month
+            .amount $3,892.45
+            .period September 2023
+          .summary-card
+            h4 Year to Date
+            .amount $36,574.23
+            .period Jan-Oct 2023
+        .commission-breakdown
+          .breakdown-chart
+            p [Commission breakdown by service type]
+          .commission-details
+            .detail-row
+              .service-type Flight Bookings
+              .commission-rate 7.5%
+              .total-earned $12,450.50
+            .detail-row
+              .service-type Hotel Reservations
+              .commission-rate 7.0%
+              .total-earned $8,750.25
+            .detail-row
+              .service-type Tour Packages
+              .commission-rate 8.0%
+              .total-earned $10,234.80
+            .detail-row
+              .service-type Car Rentals
+              .commission-rate 6.5%
+              .total-earned $5,138.68
+
+    .performance-analytics
+      h2 Performance Analytics
+      .analytics-section
+        .performance-charts
+          .chart-card
+            h4 Monthly Revenue Trend
+            .chart-placeholder
+              p [Revenue trend chart for last 12 months]
+          .chart-card
+            h4 Booking Volume by Month
+            .chart-placeholder
+              p [Booking volume chart]
+        .performance-insights
+          .insight-card
+            h4 Top Performing Months
+            ul
+              li August 2023 - $45,230 revenue
+              li July 2023 - $42,180 revenue
+              li June 2023 - $38,950 revenue
+          .insight-card
+            h4 Client Acquisition
+            .acquisition-stats
+              .stat New clients this month: 23
+              .stat Retention rate: 87%
+              .stat Avg. client lifetime value: $3,450
+
+    .history-tools
+      h2 History Management Tools
+      .tools-section
+        .tool-card
+          h4 Advanced Search
+          p Search through all historical transactions
+          button.btn-primary Search History
+        .tool-card
+          h4 Automated Reports
+          p Generate monthly and quarterly reports
+          button.btn-secondary Generate Report
+        .tool-card
+          h4 Data Backup
+          p Backup your transaction history securely
+          button.btn-secondary Backup Data
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

@@ -1,32 +1,85 @@
-extends userLayout 
+extends ../userLayout
 
-block content-head 
-    title My Profile
+block content-head
+    title My Profile - Travel Journal
 
-block content-body 
+block content-body
   .main-content
-        h1 My Profile
-            .profile-info
-        p First Name: #{user.first_name}
-        //p Last Name: #{user.last_name}
-        p Email: #{user.email}
-        p Phone: #{user.phone}
-        button.edit-btn(onclick="openOverlay()") Edit Profile
-        
+    .page-header
+      h1 My Profile
+      p Manage your personal information and account settings.
 
-        .overlay(id="editProfileOverlay")
-            .overlay-content.registration-section
-                span.close-btn(onclick="closeOverlay()") &times;
-                h2 Edit Profile
-                form.registration-form(action="/user/edit-profile" method="POST")
-                    input(type="text" name="first_name" placeholder="First Name" value=user.first_name required)
-                    //- input(type="text" name="last_name" placeholder="Last Name" value=user.last_name required)
-                    input(type="email" name="email" placeholder="Email" value=user.email required)                    
-                    input(type="tel" name="phone" placeholder="Phone Number" value=user.phone required)
-                    button(type="submit") Save Changes
+    .profile-section
+      .profile-info
+        .profile-avatar
+          img(src="/assets/images/review-1.avif", alt="Profile Picture")
+          button.btn-secondary Change Picture
 
-        include userFooter
+        .profile-details
+          h3 #{user.username}
+          p #{user.email}
+          p Member since: January 2024
 
+      .profile-form
+        form(action="/user/profile", method="POST")
+          .form-group
+            label(for="username") Username
+            input(type="text", id="username", name="username", value=user.username, required)
 
-       
-        
+          .form-group
+            label(for="email") Email
+            input(type="email", id="email", name="email", value=user.email, required)
+
+          .form-group
+            label(for="phone") Phone
+            input(type="tel", id="phone", name="phone", value=user.phone || '', placeholder="Enter your phone number")
+
+          .form-group
+            label(for="city") City
+            input(type="text", id="city", name="city", value=user.city || '', required)
+
+          .form-group
+            label(for="bio") Bio
+            textarea(id="bio", name="bio", rows="4", placeholder="Tell us about yourself...") #{user.bio || ''}
+
+          button.btn-primary(type="submit") Update Profile
+
+    .account-settings
+      h3 Account Settings
+      .setting-item
+        h4 Change Password
+        button.btn-secondary(type="button", onclick="openChangePasswordModal()") Change Password
+
+      .setting-item
+        h4 Privacy Settings
+        a.btn-secondary(href="/user/privacy") Manage Privacy
+
+      .setting-item
+        h4 Delete Account
+        button.btn-danger(type="button", onclick="confirmDeleteAccount()") Delete Account
+
+    // Change Password Modal
+    #changePasswordModal.modal
+      .modal-content
+        span.close(onclick="closeChangePasswordModal()") &times;
+        h3 Change Password
+        form(action="/user/change-password", method="POST")
+          .form-group
+            label(for="currentPassword") Current Password
+            input(type="password", id="currentPassword", name="currentPassword", required)
+          .form-group
+            label(for="newPassword") New Password
+            input(type="password", id="newPassword", name="newPassword", required)
+          button.btn-primary(type="submit") Change Password
+
+    // Delete Account Modal
+    #deleteAccountModal.modal
+      .modal-content
+        span.close(onclick="closeDeleteAccountModal()") &times;
+        h3 Confirm Delete Account
+        p Are you sure you want to delete your account? This action cannot be undone.
+        form(action="/user/delete-account", method="POST")
+          button.btn-danger(type="submit") Yes, Delete My Account
+          button.btn-secondary(type="button", onclick="closeDeleteAccountModal()") Cancel
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

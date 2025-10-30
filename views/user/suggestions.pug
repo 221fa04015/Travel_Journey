@@ -1,0 +1,74 @@
+extends ../userLayout
+
+block content-head
+    title Travel Suggestions - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Travel Suggestions
+      p Personalized travel recommendations based on your preferences.
+
+    .suggestions-section
+      .suggestion-card
+        img(src="/assets/images/paris.jpg", alt="Paris")
+        h3 Romantic Getaway in Paris
+        p Based on your interest in city breaks, we suggest a romantic trip to Paris.
+        .suggestion-details
+          p Duration: 5 days
+          p Estimated Cost: $1500
+          p Best Time: Spring or Fall
+        button.btn-primary View Package
+
+      .suggestion-card
+        img(src="/assets/images/tokyo.jpeg", alt="Tokyo")
+        h3 Adventure in Tokyo
+        p Experience the vibrant culture and technology of Tokyo.
+        .suggestion-details
+          p Duration: 7 days
+          p Estimated Cost: $2000
+          p Best Time: March to May
+        button.btn-primary View Package
+
+      .suggestion-card
+        img(src="/assets/images/sydney.jpg", alt="Sydney")
+        h3 Beach Paradise in Sydney
+        p Relax on beautiful beaches and explore the harbor city.
+        .suggestion-details
+          p Duration: 6 days
+          p Estimated Cost: $1800
+          p Best Time: December to February
+        button.btn-primary View Package
+
+      .suggestion-card
+        img(src="/assets/images/newyork.jpg", alt="New York")
+        h3 City Lights in New York
+        p Experience the energy and culture of the Big Apple.
+        .suggestion-details
+          p Duration: 6 days
+          p Estimated Cost: $2200
+          p Best Time: April to June
+        button.btn-primary View Package
+
+    .custom-suggestions
+      h3 Get Custom Suggestions
+      form(action="/user/suggestions", method="POST")
+        .form-group
+          label(for="budget") Budget
+          input(type="number", id="budget", name="budget", placeholder="Enter your budget", required)
+
+        .form-group
+          label(for="duration") Trip Duration (days)
+          input(type="number", id="duration", name="duration", placeholder="Number of days", required)
+
+        .form-group
+          label(for="interests") Interests
+          select(id="interests", name="interests")
+            option(value="culture") Culture
+            option(value="adventure") Adventure
+            option(value="relaxation") Relaxation
+            option(value="food") Food & Cuisine
+
+        button.btn-primary(type="submit") Get Suggestions
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

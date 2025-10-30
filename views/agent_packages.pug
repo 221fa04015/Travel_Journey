@@ -1,0 +1,203 @@
+extends agentLayout
+
+block content-head
+    title Agent Packages
+
+block content-body
+  .main-content
+    .page-header
+      h1 Package Management
+      p Design, manage, and optimize travel packages for your clients.
+
+    .package-dashboard
+      .package-metrics
+        .metric-card
+          h3 Total Packages
+          .metric-value 35
+          .metric-trend 5 new this quarter
+        .metric-card
+          h3 Monthly Bookings
+          .metric-value 89
+          .metric-trend ↑ 18% from last month
+        .metric-card
+          h3 Average Rating
+          .metric-value 4.7/5
+          .metric-trend Based on 234 reviews
+        .metric-card
+          h3 Package Revenue
+          .metric-value $156,750
+          .metric-trend ↑ 25% YoY growth
+
+    .package-controls
+      .control-buttons
+        button.btn-primary Create New Package
+        button.btn-secondary Package Templates
+        button.btn-secondary Bulk Pricing Update
+        button.btn-secondary Performance Analytics
+
+    .package-portfolio
+      h2 Package Portfolio
+      .portfolio-filters
+        .filter-tabs
+          button.tab.active All Packages
+          button.tab Adventure
+          button.tab Luxury
+          button.tab Family
+          button.tab Cultural
+      .packages-grid
+        .package-card
+          .package-image
+            img(src="/assets/images/package-1.jpg", alt="European Grand Tour")
+          .package-content
+            .package-header
+              h3 European Grand Tour
+              .package-status.featured Featured
+            .package-description
+              p 14-day comprehensive tour of major European cities including Paris, Rome, and Barcelona.
+            .package-details
+              .detail-item
+                .icon 🗓️
+                span 14 Days
+              .detail-item
+                .icon 👥
+                span 2-12 People
+              .detail-item
+                .icon ⭐
+                span 4.8/5 (156 reviews)
+            .package-pricing
+              .price $2,499
+              .original-price $2,999
+              .discount 17% off
+            .package-actions
+              button.btn-primary Book Now
+              button.btn-secondary View Details
+              button.btn-small Edit
+
+        .package-card
+          .package-image
+            img(src="/assets/images/package-2.jpg", alt="Asian Adventure")
+          .package-content
+            .package-header
+              h3 Asian Adventure
+              .package-status.popular Popular
+            .package-description
+              p Explore the wonders of Southeast Asia with guided tours of Thailand, Vietnam, and Cambodia.
+            .package-details
+              .detail-item
+                .icon 🗓️
+                span 10 Days
+              .detail-item
+                .icon 👥
+                span 2-8 People
+              .detail-item
+                .icon ⭐
+                span 4.6/5 (89 reviews)
+            .package-pricing
+              .price $1,799
+              .original-price $2,199
+              .discount 18% off
+            .package-actions
+              button.btn-primary Book Now
+              button.btn-secondary View Details
+              button.btn-small Edit
+
+        .package-card
+          .package-image
+            img(src="/assets/images/package-3.jpg", alt="African Safari")
+          .package-content
+            .package-header
+              h3 African Safari
+              .package-status.luxury Luxury
+            .package-description
+              p Witness wildlife in its natural habitat with luxury accommodations and expert guides.
+            .package-details
+              .detail-item
+                .icon 🗓️
+                span 7 Days
+              .detail-item
+                .icon 👥
+                span 2-6 People
+              .detail-item
+                .icon ⭐
+                span 5.0/5 (67 reviews)
+            .package-pricing
+              .price $3,299
+              .original-price $3,899
+              .discount 15% off
+            .package-actions
+              button.btn-primary Book Now
+              button.btn-secondary View Details
+              button.btn-small Edit
+
+    .package-analytics
+      h2 Package Performance
+      .analytics-overview
+        .performance-table
+          table.packages-table
+            thead
+              tr
+                th Package Name
+                th Bookings
+                th Revenue
+                th Rating
+                th Status
+                th Actions
+            tbody
+              tr
+                td European Grand Tour
+                td 45
+                td $112,455
+                td ★★★★☆ 4.8
+                td
+                  span.status.active Active
+                td
+                  .action-buttons
+                    button.btn-small Edit
+                    button.btn-small Analytics
+                    button.btn-small Duplicate
+              tr
+                td Asian Adventure
+                td 32
+                td $57,568
+                td ★★★★☆ 4.6
+                td
+                  span.status.active Active
+                td
+                  .action-buttons
+                    button.btn-small Edit
+                    button.btn-small Analytics
+                    button.btn-small Duplicate
+              tr
+                td African Safari
+                td 12
+                td $39,588
+                td ★★★★★ 5.0
+                td
+                  span.status.active Active
+                td
+                  .action-buttons
+                    button.btn-small Edit
+                    button.btn-small Analytics
+                    button.btn-small Duplicate
+
+    .package-tools
+      h2 Package Development Tools
+      .tools-grid
+        .tool-card
+          h4 Itinerary Builder
+          p Create detailed day-by-day itineraries for packages
+          button.btn-primary Open Builder
+        .tool-card
+          h4 Pricing Calculator
+          p Calculate optimal pricing with profit margins
+          button.btn-secondary Calculate Pricing
+        .tool-card
+          h4 Supplier Network
+          p Connect with hotels, tours, and transportation providers
+          button.btn-secondary Browse Suppliers
+        .tool-card
+          h4 Review Management
+          p Monitor and respond to customer reviews
+          button.btn-secondary Manage Reviews
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

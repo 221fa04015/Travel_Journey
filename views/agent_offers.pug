@@ -1,0 +1,175 @@
+extends agentLayout
+
+block content-head
+    title Agent Offers
+
+block content-body
+  .main-content
+    .page-header
+      h1 Offer Management
+      p Create, manage, and analyze promotional offers and discounts.
+
+    .offer-dashboard
+      .offer-metrics
+        .metric-card
+          h3 Active Offers
+          .metric-value 12
+          .metric-trend 3 expiring soon
+        .metric-card
+          h3 Total Redemptions
+          .metric-value 245
+          .metric-trend ↑ 15% this month
+        .metric-card
+          h3 Revenue Generated
+          .metric-value $18,500
+          .metric-trend ↑ 22% from offers
+        .metric-card
+          h3 Avg. Conversion Rate
+          .metric-value 12.3%
+          .metric-trend Above industry avg
+
+    .offer-controls
+      .control-buttons
+        button.btn-primary Create New Offer
+        button.btn-secondary Offer Templates
+        button.btn-secondary Bulk Operations
+        button.btn-secondary Performance Reports
+
+    .offer-campaigns
+      h2 Active Campaigns
+      .campaigns-grid
+        .campaign-card
+          .campaign-header
+            h3 Holiday Season Special
+            .campaign-status.active Active
+          .campaign-details
+            p Comprehensive holiday travel packages with exclusive discounts
+            .campaign-metrics
+              .metric Redemptions: 89
+              .metric Revenue: $12,450
+              .metric Conversion: 15.2%
+          .campaign-actions
+            button.btn-small Edit
+            button.btn-small Duplicate
+            button.btn-small Analytics
+            button.btn-small Pause
+
+        .campaign-card
+          .campaign-header
+            h3 Early Bird Bookings
+            .campaign-status.active Active
+          .campaign-details
+            p Special rates for bookings made 90+ days in advance
+            .campaign-metrics
+              .metric Redemptions: 156
+              .metric Revenue: $8,750
+              .metric Conversion: 9.8%
+          .campaign-actions
+            button.btn-small Edit
+            button.btn-small Duplicate
+            button.btn-small Analytics
+            button.btn-small Pause
+
+    .offer-inventory
+      h2 Current Offers
+      .offers-table
+        table.offers-table
+          thead
+            tr
+              th Offer Name
+              th Type
+              th Discount
+              th Valid Until
+              th Status
+              th Redemptions
+              th Actions
+          tbody
+            tr
+              td 20% Off International Flights
+              td Percentage Discount
+              td 20%
+              td Dec 31, 2023
+              td
+                span.status.active Active
+              td 45
+              td
+                .action-buttons
+                  button.btn-small Edit
+                  button.btn-small Pause
+                  button.btn-small Stats
+            tr
+              td Free Hotel Night
+              td Free Item
+              td 1 Night Free
+              td Nov 30, 2023
+              td
+                span.status.active Active
+              td 67
+              td
+                .action-buttons
+                  button.btn-small Edit
+                  button.btn-small Pause
+                  button.btn-small Stats
+            tr
+              td Family Package Discount
+              td Percentage Discount
+              td 15%
+              td Jan 15, 2024
+              td
+                span.status.active Active
+              td 89
+              td
+                .action-buttons
+                  button.btn-small Edit
+                  button.btn-small Pause
+                  button.btn-small Stats
+
+    .offer-analytics
+      h2 Offer Performance
+      .analytics-section
+        .performance-charts
+          .chart-card
+            h4 Redemption Trends
+            .chart-placeholder
+              p [Monthly redemption chart]
+          .chart-card
+            h4 Revenue by Offer Type
+            .chart-placeholder
+              p [Revenue breakdown pie chart]
+        .performance-metrics
+          .metric-card
+            h4 Top Performing Offers
+            ul
+              li Family Package Discount - $4,250 revenue
+              li Free Hotel Night - $3,890 revenue
+              li Early Bird Special - $2,980 revenue
+          .metric-card
+            h4 Offer ROI Analysis
+            .roi-stats
+              .roi-item
+                .offer-type Percentage Discounts
+                .roi-value 340% ROI
+              .roi-item
+                .offer-type Free Items
+                .roi-value 280% ROI
+              .roi-item
+                .offer-type Bundled Offers
+                .roi-value 420% ROI
+
+    .offer-tools
+      h2 Marketing Tools
+      .tools-section
+        .tool-card
+          h4 Email Campaign Builder
+          p Create targeted email campaigns for your offers
+          button.btn-primary Create Campaign
+        .tool-card
+          h4 Social Media Integration
+          p Share offers automatically on social platforms
+          button.btn-secondary Setup Integration
+        .tool-card
+          h4 A/B Testing Suite
+          p Test different offer variations for optimal performance
+          button.btn-secondary Run Tests
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

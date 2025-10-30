@@ -1,0 +1,123 @@
+extends agentLayout
+
+block content-head
+    title Agent Clients
+
+block content-body
+  .main-content
+    .page-header
+      h1 Client Management
+      p Manage your client relationships and communications.
+
+    .client-overview
+      .stats-grid
+        .stat-card
+          h3 Total Clients
+          .stat-value 150
+          .stat-change +12 this month
+        .stat-card
+          h3 Active Clients
+          .stat-value 120
+          .stat-change 80% retention
+        .stat-card
+          h3 New Clients
+          .stat-value 15
+          .stat-change This month
+        .stat-card
+          h3 Avg. Client Value
+          .stat-value $2,450
+          .stat-change +8% from last year
+
+    .client-actions
+      .action-buttons
+        button.btn-primary Add New Client
+        button.btn-secondary Import Clients
+        button.btn-secondary Send Newsletter
+        button.btn-secondary Export Data
+
+    .client-table-section
+      h2 Client List
+      .table-container
+        table.client-table
+          thead
+            tr
+              th Name
+              th Contact
+              th Last Booking
+              th Total Spent
+              th Status
+              th Actions
+          tbody
+            tr
+              td
+                .client-info
+                  strong John Doe
+                  small VIP Client
+              td
+                .contact-info
+                  div john@example.com
+                  div +1 (555) 123-4567
+              td 2023-10-15
+              td $3,250
+              td
+                span.status.active Active
+              td
+                .action-buttons
+                  button.btn-small Edit
+                  button.btn-small View
+            tr
+              td
+                .client-info
+                  strong Jane Smith
+                  small Regular Client
+              td
+                .contact-info
+                  div jane@example.com
+                  div +1 (555) 987-6543
+              td 2023-09-20
+              td $1,850
+              td
+                span.status.inactive Inactive
+              td
+                .action-buttons
+                  button.btn-small Edit
+                  button.btn-small View
+
+    .client-insights
+      h2 Client Insights
+      .insights-grid
+        .insight-card
+          h4 Top Spending Clients
+          ul
+            li John Doe - $3,250
+            li Sarah Johnson - $2,890
+            li Mike Wilson - $2,450
+        .insight-card
+          h4 Recent Activity
+          ul
+            li New client registration: 3
+            li Bookings this week: 12
+            li Support tickets: 5
+        .insight-card
+          h4 Client Satisfaction
+          .rating
+            span ★★★★★
+            p 4.8/5 average rating
+
+    .client-communication
+      h2 Communication Tools
+      .comm-tools
+        .tool-card
+          h4 Email Campaigns
+          p Send personalized newsletters and offers
+          button.btn-primary Create Campaign
+        .tool-card
+          h4 SMS Notifications
+          p Send booking confirmations and updates
+          button.btn-secondary Setup SMS
+        .tool-card
+          h4 Client Portal
+          p Allow clients to manage their bookings
+          button.btn-secondary Access Portal
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

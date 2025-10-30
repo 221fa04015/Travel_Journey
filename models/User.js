@@ -16,13 +16,23 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   phone: {
-    type: [String], // Allow multiple phone numbers
+    type: String, // Single phone number
     required: false // Not mandatory for agents
   },
   city: {
     type: String,
     required: function() {
       return this.role === 'user'; // City is required only for users
+    }
+  },
+  bio: {
+    type: String,
+    required: false
+  },
+  agency: {
+    type: String,
+    required: function() {
+      return this.role === 'agent'; // Agency is required only for agents
     }
   },
   role: {

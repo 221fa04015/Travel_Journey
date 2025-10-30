@@ -1,0 +1,98 @@
+extends agentLayout
+
+block content-head
+    title Agent Profile
+
+block content-body
+  .main-content
+    .page-header
+      h1 Agent Profile
+      p Manage your professional information and account settings.
+
+    .profile-section
+      .profile-info
+        .profile-avatar
+          img(src="/assets/images/review-1.avif", alt="Profile Picture")
+          button.btn-secondary Change Picture
+
+        .profile-details
+          h3 #{agentname || 'Agent Name'}
+          p #{agentemail || 'agent@example.com'}
+          p Agent ID: #{agentid || 'AGENT001'}
+          p Member since: January 2024
+
+      .profile-form
+        form(action="/agent/profile", method="POST")
+          .form-group
+            label(for="agentname") Agent Name
+            input(type="text", id="agentname", name="agentname", value=agentname || '', required)
+
+          .form-group
+            label(for="agentemail") Email
+            input(type="email", id="agentemail", name="agentemail", value=agentemail || '', required)
+
+          .form-group
+            label(for="agentid") Agent ID
+            input(type="text", id="agentid", name="agentid", value=agentid || '', required)
+
+          .form-group
+            label(for="phone") Phone
+            input(type="tel", id="phone", name="phone", value=phone || '', placeholder="Enter your phone number")
+
+          .form-group
+            label(for="agency") Agency
+            input(type="text", id="agency", name="agency", value=agency || '', required)
+
+          .form-group
+            label(for="bio") Professional Bio
+            textarea(id="bio", name="bio", rows="4", placeholder="Tell clients about your expertise...") #{bio || ''}
+
+          button.btn-primary(type="submit") Update Profile
+
+    .account-settings
+      h3 Account Settings
+      .setting-item
+        h4 Change Password
+        button.btn-secondary(type="button", onclick="openChangePasswordModal()") Change Password
+
+      .setting-item
+        h4 Commission Settings
+        button.btn-secondary Manage Commissions
+
+      .setting-item
+        h4 Business Documents
+        button.btn-secondary Upload Documents
+
+      .setting-item
+        h4 Privacy Settings
+        a.btn-secondary(href="/agent/privacy") Manage Privacy
+
+      .setting-item
+        h4 Delete Account
+        button.btn-danger(type="button", onclick="confirmDeleteAccount()") Delete Account
+
+    // Change Password Modal
+    #changePasswordModal.modal
+      .modal-content
+        span.close(onclick="closeChangePasswordModal()") &times;
+        h3 Change Password
+        form(action="/agent/change-password", method="POST")
+          .form-group
+            label(for="currentPassword") Current Password
+            input(type="password", id="currentPassword", name="currentPassword", required)
+          .form-group
+            label(for="newPassword") New Password
+            input(type="password", id="newPassword", name="newPassword", required)
+          button.btn-primary(type="submit") Change Password
+
+    // Delete Account Modal
+    #deleteAccountModal.modal
+      .modal-content
+        span.close(onclick="closeDeleteAccountModal()") &times;
+        h3 Confirm Delete Account
+        p Are you sure you want to delete your account? This action cannot be undone.
+        form(action="/agent/delete-account", method="POST")
+          button.btn-danger(type="submit") Yes, Delete My Account
+          button.btn-secondary(type="button", onclick="closeDeleteAccountModal()") Cancel
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

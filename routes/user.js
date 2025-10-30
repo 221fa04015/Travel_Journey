@@ -102,7 +102,7 @@ module.exports = router;
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');  // Assuming the Agent is part of this model or a separate model
-const bcrypt = require('bcryptjs'); 
+const bcrypt = require('bcryptjs');
 const { protect } = require('../middleware/auth');
 require('dotenv').config();  // Load environment variables
 
@@ -189,10 +189,169 @@ router.get('/dashboard/agent', protect, (req, res) => {
 });
 
 
+// Protected routes for user pages
+router.get('/my-bookings', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/my-bookings', { user: req.user });
+});
+
+router.get('/spots', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/spots', { user: req.user });
+});
+
+router.get('/book-flight', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/book-flight', { user: req.user });
+});
+
+router.get('/agency', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/agency', { user: req.user });
+});
+
+router.get('/flight-status', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/flight-status', { user: req.user });
+});
+
+router.get('/manage-preferences', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/manage-preferences', { user: req.user });
+});
+
+router.get('/payment-methods', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/payment-methods', { user: req.user });
+});
+
+router.get('/travel-alerts', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/travel-alerts', { user: req.user });
+});
+
+router.get('/suggestions', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/suggestions', { user: req.user });
+});
+
+router.get('/profile', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/profile', { user: req.user });
+});
+
+router.get('/history', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/history', { user: req.user });
+});
+
+// POST route to update user profile
+router.post('/profile', protect, async (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+
+  const { username, email, phone, city, bio } = req.body;
+
+  try {
+    // Update the user in the database
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      { username, email, phone, city, bio },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).send('User not found');
+    }
+
+    // Update the session with new user data
+    req.user = updatedUser;
+
+    // Redirect back to profile page with success message or just render
+    res.render('user/profile', { user: updatedUser, successMessage: 'Profile updated successfully' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error updating profile');
+  }
+});
+
+// POST route to change user password
+router.post('/change-password', protect, async (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+
+  const { currentPassword, newPassword } = req.body;
+
+  try {
+    // Check if current password is correct
+    const isMatch = await req.user.matchPassword(currentPassword);
+    if (!isMatch) {
+      return res.render('user/profile', { user: req.user, errorMessage: 'Current password is incorrect' });
+    }
+
+    // Update password
+    req.user.password = newPassword;
+    await req.user.save();
+
+    res.render('user/profile', { user: req.user, successMessage: 'Password changed successfully' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error changing password');
+  }
+});
+
+// GET route for manage privacy
+router.get('/privacy', protect, (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+  res.render('user/privacy', { user: req.user });
+});
+
+// POST route to delete user account
+router.post('/delete-account', protect, async (req, res) => {
+  if (req.user.role !== 'user') {
+    return res.status(403).send('Forbidden');
+  }
+
+  try {
+    await User.findByIdAndDelete(req.user._id);
+    res.clearCookie('token');
+    res.redirect('/login');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error deleting account');
+  }
+});
+
 // Logout route
 router.get('/logout', (req, res) => {
   // Clear the JWT cookie by setting it with an empty value and immediate expiration
-  res.cookie('token', '', { 
+  res.cookie('token', '', {
     httpOnly: true, // Ensure it matches the attributes used when setting the cookie
     expires: new Date(0)  // Expire the cookie immediately
   });

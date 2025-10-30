@@ -1,0 +1,52 @@
+extends ../userLayout
+
+block content-head
+    title Route Updates - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Route Updates
+      p Check the latest status and updates for your flights.
+
+    .status-form
+      form(action="/user/flight-status", method="POST")
+        .form-group
+          label(for="flight-number") Flight Number
+          input(type="text", id="flight-number", name="flight-number", placeholder="e.g., ABC123", required)
+        .form-group
+          label(for="date") Date
+          input(type="date", id="date", name="date", required)
+        button.btn-primary(type="submit") Check Status
+
+    .flight-status(style="display: none;")
+      .status-card
+        h3 Flight ABC123 Status
+        .status-info
+          p Airline: Example Airlines
+          p Route: New York to London
+          p Scheduled Departure: 10:00 AM
+          p Actual Departure: 10:15 AM
+          p Status: On Time
+          .status-indicator.on-time On Time
+
+      .status-updates
+        h4 Recent Updates
+        ul
+          li 9:45 AM: Boarding has begun
+          li 9:30 AM: Flight is on schedule
+          li 8:00 AM: Check-in counters are open
+
+    .route-updates
+      h3 General Route Updates
+      .update-card
+        h4 Route: Paris to Tokyo
+        p Due to weather conditions, flights may experience delays of up to 2 hours.
+        p Last updated: 2 hours ago
+
+      .update-card
+        h4 Route: London to Dubai
+        p All flights operating normally. No disruptions reported.
+        p Last updated: 30 minutes ago
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

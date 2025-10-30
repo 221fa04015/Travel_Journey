@@ -97,9 +97,7 @@ app.use('/agent', agentRouter);
 app.get('/user/dashboard', protect, (req, res) => {
     res.render('user_dashboard', { user: req.user });
 });
-app.get('/agent/dashboard', protect, (req, res) => {
-    res.render('agent_dashboard', { agent: req.agent });
-});
+// Agent routes are handled in routes/agent.js
 // General Middleware
 app.use((req, res, next) => {
     try {

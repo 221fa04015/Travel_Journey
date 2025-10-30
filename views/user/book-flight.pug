@@ -1,0 +1,67 @@
+extends ../userLayout
+
+block content-head
+    title Book a Route - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Book a Route
+      p Find and book the perfect flight for your journey.
+
+    .booking-form
+      form(action="/user/book-flight", method="POST")
+        .form-group
+          label(for="from") From
+          input(type="text", id="from", name="from", placeholder="Departure City", required)
+
+        .form-group
+          label(for="to") To
+          input(type="text", id="to", name="to", placeholder="Arrival City", required)
+
+        .form-group
+          label(for="departure-date") Departure Date
+          input(type="date", id="departure-date", name="departure-date", required)
+
+        .form-group
+          label(for="return-date") Return Date
+          input(type="date", id="return-date", name="return-date")
+
+        .form-group
+          label(for="passengers") Passengers
+          select(id="passengers", name="passengers")
+            option(value="1") 1 Passenger
+            option(value="2") 2 Passengers
+            option(value="3") 3 Passengers
+            option(value="4") 4 Passengers
+
+        .form-group
+          label(for="class") Class
+          select(id="class", name="class")
+            option(value="economy") Economy
+            option(value="business") Business
+            option(value="first") First Class
+
+        button.btn-primary(type="submit") Search Flights
+
+    .flight-results(style="display: none;")
+      h3 Available Flights
+      .flight-card
+        .flight-info
+          h4 Flight ABC123
+          p Airline: Example Airlines
+          p Departure: 10:00 AM - Arrival: 2:00 PM
+          p Duration: 4h 0m
+          p Price: $299
+        button.btn-primary Book Now
+
+      .flight-card
+        .flight-info
+          h4 Flight XYZ456
+          p Airline: Another Airlines
+          p Departure: 2:00 PM - Arrival: 6:00 PM
+          p Duration: 4h 0m
+          p Price: $349
+        button.btn-primary Book Now
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

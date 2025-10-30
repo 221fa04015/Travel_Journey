@@ -1,0 +1,47 @@
+extends ../userLayout
+
+block content-head
+    title Travel Spots - Travel Journal
+
+block content-body
+  .main-content
+    .page-header
+      h1 Travel Spots
+      p Discover amazing destinations and hidden gems.
+
+    .spots-grid
+      .spot-card
+        img(src="/assets/images/paris.jpg", alt="Paris")
+        h3 Eiffel Tower, Paris
+        p Experience the romance of Paris with a visit to the iconic Eiffel Tower.
+        .spot-rating ★★★★☆ (4.5)
+        button.btn-primary Explore
+
+      .spot-card
+        img(src="/assets/images/tokyo.jpeg", alt="Tokyo")
+        h3 Shibuya Crossing, Tokyo
+        p Witness the world's busiest pedestrian crossing in the heart of Tokyo.
+        .spot-rating ★★★★★ (5.0)
+        button.btn-primary Explore
+
+      .spot-card
+        img(src="/assets/images/newyork.jpg", alt="New York")
+        h3 Times Square, New York
+        p Immerse yourself in the bright lights and energy of Times Square.
+        .spot-rating ★★★★☆ (4.2)
+        button.btn-primary Explore
+
+      .spot-card
+        img(src="/assets/images/sydney.jpg", alt="Sydney")
+        h3 Sydney Opera House
+        p Marvel at the architectural wonder and enjoy world-class performances.
+        .spot-rating ★★★★★ (4.8)
+        button.btn-primary Explore
+
+
+
+    .search-spots
+      input(type="text", placeholder="Search for spots...")
+      button.btn-primary Search
+
+  button.scroll-to-top(id="scrollToTopBtn") ↑

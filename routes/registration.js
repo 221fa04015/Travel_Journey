@@ -168,7 +168,7 @@ router.post('/register/user', async (req, res) => {
         res.cookie('token', token, { httpOnly: true });
 
         // Redirect to user dashboard after successful registration
-        res.redirect('/dashboard/user');
+        res.redirect('/user/dashboard');
     } catch (err) {
         console.error(err);
         res.status(500).send('Error registering user');
